@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/ros2/rosidl_runtime_py/archive/refs/tags/0.15.0.tar.gz",
+    "integrity": "sha256-KJzNomsvoxlNCo8nvUdCkPVo0JqVtLglYVjW+7PkcFE=",
+    "strip_prefix": "rosidl_runtime_py-0.15.0",
+    "overlay": {
+        "BUILD.bazel": "sha256-bxz0oyYtG63+POTIrg9SBhFCdPaXe61kVhA4E4G5+MA=",
+        "MODULE.bazel": "sha256-GjZZNb/GV7mkO7sfI/NNvY2xGyPhfzGhjAruirSmA9Q="
+    }
+}

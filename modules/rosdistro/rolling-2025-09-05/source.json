@@ -1,0 +1,19 @@
+{
+    "url": "https://github.com/ros/rosdistro/archive/refs/tags/rolling/2025-09-05.tar.gz",
+    "integrity": "sha256-NFWQ4RYo3uIIJXpvDlg7f+PgqmwFXuDN4z171EsNxH4=",
+    "strip_prefix": "rosdistro-rolling-2025-09-05",
+    "overlay": {
+        "BUILD.bazel": "sha256-fDWlTCusElP9dlEJQk2ZBqeKft9z7Q+VWWL+6yk9aY8=",
+        "MODULE.bazel": "sha256-+v1k5TjQUwYDNbl7O2mEnuP8Q6/LyMtL1X62P9HEQYM=",
+        "bazel/python/BUILD.bazel": "sha256-Mw5GvY+WenYjNqwtJ/m91bDrmpdQ28k+AZD9gR25k14=",
+        "bazel/python/cc/BUILD.bazel": "sha256-xbANmQKXB3sCcIBvGGjrU6oWYADe4K+KLrGNuZlQ2mc=",
+        "bazel/python/macros.bzl": "sha256-zIzO6PknJxi7ZEYp4tpPxwoT4UgWYdhsrW9TcN+BH60=",
+        "bazel/python/pytest_main.py": "sha256-yMWt5nPtjVjVJxQOTt7Shu6sESJrvrIY4Y8UTWeAYlc=",
+        "requirements.in": "sha256-UWWf822smZjqqmX+6hyTy+g10VhfTA1ZZF3oUYVaepg=",
+        "requirements_lock.txt": "sha256-u+5lcMyqkRrjLIoPunpnIkkxO07Hdrf8N/Ozh9YeThw="
+    },
+    "patches": {
+        "fix__gitignore.patch": "sha256-uBgZaK1ljAHP5uXT8UizJq30yf/8rMrVyeGdfnO326k="
+    },
+    "patch_strip": 1
+}

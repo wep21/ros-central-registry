@@ -1,0 +1,15 @@
+{
+    "url": "https://github.com/ros2/rosidl/archive/refs/tags/5.0.0.tar.gz",
+    "integrity": "sha256-TSUAVI2+hRv0LVlqNmnsTbzkm74bvMhEEIcmZK+zDW0=",
+    "strip_prefix": "rosidl-5.0.0/rosidl_typesupport_introspection_c",
+    "overlay": {
+        "BUILD.bazel": "sha256-I3KHTX6HBNvzO4FTmgEpyyO15LS2LqwqZRHQsJjRxfg=",
+        "MODULE.bazel": "sha256-eKiMGFiStOIMzTj9BBIasoty3/4vBXZvyCN2n9YLU0s=",
+        "aspects.bzl": "sha256-Nv3kJMuux+lE1RBZ61jvsfggoc87WmA/8ty8qt+FWzw=",
+        "types.bzl": "sha256-t/2LvHP18Vc0cn/TfgW6DV+lHaT7pczovpe+l18SO94="
+    },
+    "patches": {
+        "fix_rosidl_typesupport_introspection_c___init___py.patch": "sha256-qqqpAgehJvD/rwYGz68o3bI2goT/BLIBfMfdf8au9IE="
+    },
+    "patch_strip": 2
+}

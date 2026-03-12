@@ -1,0 +1,90 @@
+# Copyright 2025 Open Source Robotics Foundation, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Imports
+
+load("@rosidl_generator_c//:rules.bzl", "c_ros_library")
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+package(default_visibility = ["//visibility:public"])
+
+# Messages
+
+c_ros_library(
+    name = "msgs",
+    deps = [
+        "@action_msgs//msg:GoalInfo",
+        "@action_msgs//msg:GoalStatus",
+        "@action_msgs//msg:GoalStatusArray",
+        "@action_msgs//srv:CancelGoal",
+    ],
+)
+
+# Libraries
+
+cc_library(
+    name = "rcl_action",
+    srcs = glob([
+        "src/**/*.h",
+        "src/**/*.c",
+    ]),
+    hdrs = glob(["include/**/*.h"]),
+    includes = ["include"],
+    local_defines = ["ROS_PACKAGE_NAME=\\\"rcl_action\\\""],
+    deps = [
+        ":msgs",
+        "@rcl",
+        "@rosidl_runtime_c",
+    ],
+)
+
+# Tests
+
+# TODO(asymingt) work out why test_action_communication fails on:
+# > rmw_cyclonedds_cpp
+# > rmw_fastrtps_dynamic_cpp
+[
+    cc_test(
+        name = name,
+        timeout = "moderate",
+        srcs = ["test/rcl_action/{}.cpp".format(name)] + glob([
+            "src/**/*.h",
+            "test/**/*.hpp",
+        ]),
+        includes = ["src"],
+        local_defines = ["ROS_PACKAGE_NAME=\\\"rcl_action\\\""],
+        target_compatible_with = target_compatible_with,
+        deps = [
+            ":rcl_action",
+            "@googletest//:gtest",
+            "@googletest//:gtest_main",
+            "@osrf_testing_tools_cpp//:memory_tools",
+            "@test_msgs//:msgs_c",
+        ],
+    )
+    for name, target_compatible_with in {
+        "test_action_client": None,
+        "test_action_communication": select({
+            "@rmw_implementation//:rmw_fastrtps_dynamic_cpp": ["@platforms//:incompatible"],
+            "//conditions:default": [],
+        }),
+        "test_action_interaction": None,
+        "test_graph": None,
+        "test_action_server": None,
+        "test_goal_handle": None,
+        "test_goal_state_machine": None,
+        "test_types": None,
+        "test_wait": None,
+    }.items()
+]

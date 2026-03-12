@@ -1,0 +1,11 @@
+{
+    "url": "https://github.com/ros2/example_interfaces/archive/refs/tags/0.14.1.tar.gz",
+    "integrity": "sha256-2dde9m0QdMZRKm2I00P8iXH3cG5MarR0cZMWlOZlrho=",
+    "strip_prefix": "example_interfaces-0.14.1",
+    "overlay": {
+        "MODULE.bazel": "sha256-VmS0e83nx+/Y67lIGZloKHGH/LsYXvPXptgSJa4ysL8=",
+        "action/BUILD.bazel": "sha256-TAFWgVL9Z4LL8nN5jab2njZM8CWk597YeCXiFlHRUtM=",
+        "msg/BUILD.bazel": "sha256-igjNQ+UUMjpkHQyci0fCCQ+WtFn9x1RLikzurAxlNd4=",
+        "srv/BUILD.bazel": "sha256-SIIN6NIdhswElO5q3sCcCe5DPyOed0BCdos60ZusNEI="
+    }
+}
