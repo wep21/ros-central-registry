@@ -1,0 +1,17 @@
+--- a/test/test_torch_tensor_inter_pubsub_fastrtps_launch.py
++++ b/test/test_torch_tensor_inter_pubsub_fastrtps_launch.py
+@@ -116,10 +116,10 @@
+             f'Sent: {self.publisher_count}')
+         self.assertTrue(
+             self.validation_passed, 'Tensor validation failed (inter-process)')
+-        self.assertLessEqual(
+-            abs(self.publisher_count - self.subscriber_count), 5,
+-            f'Publisher count ({self.publisher_count}) and subscriber count '
+-            f'({self.subscriber_count}) differ by more than 5')
++        # No publisher/subscriber count-difference check: publisher_count also
++        # counts tensors published before discovery matched the two processes,
++        # which on a loaded runner is easily more than 5 (upstream has since
++        # dropped this assertion too).
+ 
+ 
+ @launch_testing.post_shutdown_test()
